@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{post?.title}}</h5>
+    <div class="post-body">
+      <p class="card-text">{{post?.body}}</p>
+      <a role="button" class="comments" (click)="toogleComments(post.id)">
+        Hozzászólások</a>
+    </div>
+    <ng-template comment-host></ng-template>
+  </div>
+</div>

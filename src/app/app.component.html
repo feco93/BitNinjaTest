@@ -1,0 +1,20 @@
+<div *ngIf="isLoading; else mainContent">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+</div>
+<ng-template #mainContent>
+    <div class="flex-container">
+        <div class="post-container">
+            <app-new-post></app-new-post>
+    
+            <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="100" (scrolled)="onScrollDown()">
+                <div class="post" *ngFor="let post of renderedPosts">
+                    <app-post [post]="post"></app-post>
+                </div>
+            </div>
+        </div>
+    </div>    
+</ng-template>
+
+<router-outlet></router-outlet>
